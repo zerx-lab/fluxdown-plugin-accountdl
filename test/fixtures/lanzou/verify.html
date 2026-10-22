@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<script type="text/javascript" src="https://images.bakstotre.com/assets/includes/js/jquery.js"></script>
+</head>
+<body>
+
+<div id="top">下载文件</div>
+<div class="load2" id="load2"><div class="loader"></div><div class="loader2">努力加载中...</div></div>
+
+<div class="box">
+<div id="box1" class="box1">
+<div id="ok"><div class="ok"></div></div>
+<div id="ok2" class="box2_2">已经通过验证</div>
+<div id="go" class="submit goto"><div onclick="down_r(1);">验证并下载</div></div>
+</div>
+
+<div id="box2" class="box2">
+<div class="box2_1">!</div>
+<div class="box2_2">系统发现您的网络异常，需要验证后下载文件</div>
+<div id="sub" class="submit"><div onclick="down_r(2);">验证并下载</div></div>
+</div>
+
+<div id="box3" class="box3">
+<div id="sub2" class="submit goto"><div onclick="down_r(3);">验证并下载</div></div>
+</div>
+
+</div>
+<script type="text/javascript">
+	setTimeout('document.getElementById("load2").style.display="none";',2000);
+	function down_r(el){
+		$('#sub').text("提交中..."); 
+		$.ajax({
+			type : 'post',
+			url : 'ajax.php',
+			data : { 'file':'FIXTURE_FILE','el':el,'sign':'FIXTURE_SIGN' },
+			dataType : 'json',
+			success:function(msg){
+				if(msg.zt == '1'){
+					$("#box2").hide(150);
+					$("#ok").show(150);
+					$("#ok2").show(150);
+					$(".ok").show(500);
+					$("#go").removeClass("goto");
+					$("#go").html("<a href="+ msg.url +"><span class=tc2>立即下载</span></a>");
+				}else{
+					//$('#sub').val("验证并下载"); 
+					setTimeout('window.location.reload();',1000);
+				}
+			},
+			error:function(){
+				//$("pwderr").text("获取失败，请重试");
+			}
+	
+		});
+	}
+</script>
+</body>
+<div style="display:none"></div>
+</html>

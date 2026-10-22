@@ -1,0 +1,15 @@
+{
+  "entries": {
+    "resolve.js": "src/resolve.ts",
+    "main.js": "src/main.ts",
+    "page/baidu.js": "src/page/baidu.ts",
+    "page/quark.js": "src/page/quark.ts",
+    "page/pan123.js": "src/page/pan123.ts",
+    "page/pan115.js": "src/page/pan115.ts",
+    "page/lanzou.js": "src/page/lanzou.ts",
+    "page/bilibili.js": "src/page/bilibili.ts",
+    "page/pixiv.js": "src/page/pixiv.ts",
+    "page/cnki.js": "src/page/cnki.ts"
+  },
+  "assets": []
+}

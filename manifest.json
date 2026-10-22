@@ -1,0 +1,326 @@
+{
+  "identity": "accountdl@accountdl",
+  "name": "账号直链",
+  "version": "0.1.0",
+  "description": "用你在浏览器里已登录的账号，把百度网盘、115、夸克、123 云盘、蓝奏云分享，哔哩哔哩视频，Pixiv 作品，知网论文解析为直链下载。",
+  "resolvers": [
+    {
+      "match": {
+        "urls": [
+          "https://pan.baidu.com/__accountdl/baidu*",
+          "https://pan.quark.cn/__accountdl/quark*",
+          "https://123pan.com/__accountdl/pan123*",
+          "https://*.123pan.com/__accountdl/pan123*",
+          "https://123pan.cn/__accountdl/pan123*",
+          "https://*.123pan.cn/__accountdl/pan123*",
+          "https://123684.com/__accountdl/pan123*",
+          "https://*.123684.com/__accountdl/pan123*",
+          "https://123865.com/__accountdl/pan123*",
+          "https://*.123865.com/__accountdl/pan123*",
+          "https://123912.com/__accountdl/pan123*",
+          "https://*.123912.com/__accountdl/pan123*",
+          "https://123592.com/__accountdl/pan123*",
+          "https://*.123592.com/__accountdl/pan123*",
+          "https://123295.com/__accountdl/pan123*",
+          "https://*.123295.com/__accountdl/pan123*",
+          "https://123278.com/__accountdl/pan123*",
+          "https://*.123278.com/__accountdl/pan123*",
+          "https://115.com/__accountdl/pan115*",
+          "*://*.lanzoub.com/*",
+          "*://*.lanzouc.com/*",
+          "*://*.lanzoue.com/*",
+          "*://*.lanzouf.com/*",
+          "*://*.lanzoug.com/*",
+          "*://*.lanzouh.com/*",
+          "*://*.lanzoui.com/*",
+          "*://*.lanzouj.com/*",
+          "*://*.lanzouk.com/*",
+          "*://*.lanzoul.com/*",
+          "*://*.lanzoum.com/*",
+          "*://*.lanzouo.com/*",
+          "*://*.lanzoup.com/*",
+          "*://*.lanzouq.com/*",
+          "*://*.lanzout.com/*",
+          "*://*.lanzouu.com/*",
+          "*://*.lanzouv.com/*",
+          "*://*.lanzouw.com/*",
+          "*://*.lanzoux.com/*",
+          "*://*.lanzouy.com/*",
+          "*://*.lanzb.com/*",
+          "*://*.lanze.com/*",
+          "*://*.lanzf.com/*",
+          "*://*.lanzh.com/*",
+          "*://*.lanzi.com/*",
+          "*://*.lanzj.com/*",
+          "*://*.lanzl.com/*",
+          "*://*.lanzm.com/*",
+          "*://*.lanzn.com/*",
+          "*://*.lanzo.com/*",
+          "*://*.lanzp.com/*",
+          "*://*.lanzq.com/*",
+          "*://*.lanzt.com/*",
+          "*://*.lanzv.com/*",
+          "*://*.lanzw.com/*",
+          "*://*.lanzx.com/*",
+          "*://*.lanzy.com/*",
+          "*://*.lanpw.com/*",
+          "*://www.bilibili.com/video/*",
+          "*://www.bilibili.com/bangumi/play/*",
+          "*://m.bilibili.com/video/*",
+          "*://bilibili.com/video/*",
+          "*://bilibili.com/bangumi/play/*",
+          "*://www.pixiv.net/artworks/*",
+          "*://www.pixiv.net/*/artworks/*",
+          "*://pixiv.net/artworks/*",
+          "*://pixiv.net/*/artworks/*"
+        ]
+      },
+      "entry": "resolve.js",
+      "timeoutMs": 30000,
+      "multi": true
+    }
+  ],
+  "main": {
+    "entry": "main.js"
+  },
+  "contributes": {
+    "pageScripts": [
+      {
+        "id": "baidu",
+        "title": "百度网盘分享页「直链下载」按钮",
+        "matches": [
+          "https://pan.baidu.com/s/*",
+          "https://pan.baidu.com/share/init*",
+          "https://pan.baidu.com/wap/init*",
+          "https://yun.baidu.com/s/*",
+          "https://yun.baidu.com/share/init*",
+          "https://yun.baidu.com/wap/init*"
+        ],
+        "js": [
+          "page/baidu.js"
+        ],
+        "runAt": "document_idle"
+      },
+      {
+        "id": "quark",
+        "title": "夸克网盘分享页「直链下载」按钮",
+        "matches": [
+          "https://pan.quark.cn/s/*"
+        ],
+        "js": [
+          "page/quark.js"
+        ],
+        "runAt": "document_idle"
+      },
+      {
+        "id": "pan123",
+        "title": "123 云盘分享页「直链下载」按钮",
+        "matches": [
+          "*://*.123pan.com/s/*",
+          "*://*.123pan.com/ps/*",
+          "*://*.123pan.com/123pan/*",
+          "*://*.123pan.cn/s/*",
+          "*://*.123pan.cn/ps/*",
+          "*://*.123pan.cn/123pan/*",
+          "*://*.123684.com/s/*",
+          "*://*.123865.com/s/*",
+          "*://*.123912.com/s/*",
+          "*://*.123592.com/s/*"
+        ],
+        "js": [
+          "page/pan123.js"
+        ],
+        "runAt": "document_idle"
+      },
+      {
+        "id": "pan115",
+        "title": "115 分享页「直链下载」按钮",
+        "matches": [
+          "*://115.com/s/*",
+          "*://115cdn.com/s/*",
+          "*://anxia.com/s/*"
+        ],
+        "js": [
+          "page/pan115.js"
+        ],
+        "runAt": "document_idle"
+      },
+      {
+        "id": "lanzou",
+        "title": "蓝奏云分享页「直链下载」按钮",
+        "matches": [
+          "*://*.lanzoub.com/*",
+          "*://*.lanzouc.com/*",
+          "*://*.lanzoue.com/*",
+          "*://*.lanzouf.com/*",
+          "*://*.lanzoug.com/*",
+          "*://*.lanzouh.com/*",
+          "*://*.lanzoui.com/*",
+          "*://*.lanzouj.com/*",
+          "*://*.lanzouk.com/*",
+          "*://*.lanzoul.com/*",
+          "*://*.lanzoum.com/*",
+          "*://*.lanzouo.com/*",
+          "*://*.lanzoup.com/*",
+          "*://*.lanzouq.com/*",
+          "*://*.lanzout.com/*",
+          "*://*.lanzouu.com/*",
+          "*://*.lanzouv.com/*",
+          "*://*.lanzouw.com/*",
+          "*://*.lanzoux.com/*",
+          "*://*.lanzouy.com/*"
+        ],
+        "js": [
+          "page/lanzou.js"
+        ],
+        "runAt": "document_idle"
+      },
+      {
+        "id": "lanzou2",
+        "title": "蓝奏云分享页「直链下载」按钮（其他域名）",
+        "matches": [
+          "*://*.lanzb.com/*",
+          "*://*.lanze.com/*",
+          "*://*.lanzf.com/*",
+          "*://*.lanzh.com/*",
+          "*://*.lanzi.com/*",
+          "*://*.lanzj.com/*",
+          "*://*.lanzl.com/*",
+          "*://*.lanzm.com/*",
+          "*://*.lanzn.com/*",
+          "*://*.lanzo.com/*",
+          "*://*.lanzp.com/*",
+          "*://*.lanzq.com/*",
+          "*://*.lanzt.com/*",
+          "*://*.lanzv.com/*",
+          "*://*.lanzw.com/*",
+          "*://*.lanzx.com/*",
+          "*://*.lanzy.com/*",
+          "*://*.lanpw.com/*"
+        ],
+        "js": [
+          "page/lanzou.js"
+        ],
+        "runAt": "document_idle"
+      },
+      {
+        "id": "bilibili",
+        "title": "哔哩哔哩视频页「直链下载」按钮",
+        "matches": [
+          "*://www.bilibili.com/video/*",
+          "*://www.bilibili.com/bangumi/play/*"
+        ],
+        "js": [
+          "page/bilibili.js"
+        ],
+        "runAt": "document_idle"
+      },
+      {
+        "id": "pixiv",
+        "title": "Pixiv 作品页「下载原图」按钮",
+        "matches": [
+          "https://www.pixiv.net/*"
+        ],
+        "js": [
+          "page/pixiv.js"
+        ],
+        "runAt": "document_idle"
+      },
+      {
+        "id": "cnki",
+        "title": "知网文献页「直链下载」按钮",
+        "matches": [
+          "*://*.cnki.net/kcms2/article/abstract*",
+          "*://*.cnki.net/kcms/detail/*"
+        ],
+        "js": [
+          "page/cnki.js"
+        ],
+        "runAt": "document_idle"
+      }
+    ]
+  },
+  "settings": [
+    {
+      "key": "bilibiliQuality",
+      "title": "哔哩哔哩画质",
+      "description": "「最高」不含 HDR 与杜比视界；「每次询问」会列出全部画质与编码供选择；账号没有的画质自动降级。",
+      "type": "string",
+      "widget": "select",
+      "default": "best",
+      "options": [
+        {
+          "value": "best",
+          "label": "最高可用"
+        },
+        {
+          "value": "2160",
+          "label": "最高 4K"
+        },
+        {
+          "value": "1080",
+          "label": "最高 1080P"
+        },
+        {
+          "value": "720",
+          "label": "最高 720P"
+        },
+        {
+          "value": "480",
+          "label": "最高 480P"
+        },
+        {
+          "value": "360",
+          "label": "最高 360P"
+        },
+        {
+          "value": "ask",
+          "label": "每次询问"
+        }
+      ]
+    },
+    {
+      "key": "bilibiliCodec",
+      "title": "哔哩哔哩视频编码",
+      "description": "同一画质下优先的编码。AVC 兼容性最好；HEVC / AV1 体积更小但需要播放器支持；该编码没有时自动换其他编码。",
+      "type": "string",
+      "widget": "select",
+      "default": "avc",
+      "options": [
+        {
+          "value": "avc",
+          "label": "AVC（兼容性最好）"
+        },
+        {
+          "value": "hevc",
+          "label": "HEVC"
+        },
+        {
+          "value": "av1",
+          "label": "AV1"
+        }
+      ]
+    },
+    {
+      "key": "bilibiliAudio",
+      "title": "哔哩哔哩音频",
+      "description": "「尽量最好」优先 Hi-Res（FLAC）、杜比全景声，需要大会员；合并为 mp4 时若 ffmpeg 不支持该音频，宿主会转成 192k AAC。",
+      "type": "string",
+      "widget": "select",
+      "default": "standard",
+      "options": [
+        {
+          "value": "standard",
+          "label": "普通（AAC，兼容性最好）"
+        },
+        {
+          "value": "best",
+          "label": "尽量最好（Hi-Res / 杜比）"
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    "pageScripts"
+  ]
+}

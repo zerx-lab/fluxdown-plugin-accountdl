@@ -1,0 +1,65 @@
+{
+ "state": true,
+ "error": "",
+ "errno": 0,
+ "data": {
+  "userinfo": {
+   "user_id": "10000",
+   "user_name": "示***。",
+   "face": "http://avatars.115.com/00/example_m.jpg"
+  },
+  "shareinfo": {
+   "snap_id": "1",
+   "file_size": 1245588322,
+   "share_title": "示例视频.S01E01.mkv",
+   "share_state": 7,
+   "forbid_reason": "链接已过期",
+   "create_time": 1789189706,
+   "receive_code": "t58d",
+   "has_receive_code": 1,
+   "receive_count": 602,
+   "expire_time": 1790485706,
+   "file_category": 1,
+   "auto_renewal": 0,
+   "share_duration": 15,
+   "auto_fill_recvcode": 1,
+   "can_report": 1,
+   "can_notice": 1,
+   "have_vio_file": 0,
+   "skip_login_state": 0
+  },
+  "count": 1,
+  "list": [
+   {
+    "fid": "3516278936403182800",
+    "uid": 10000,
+    "cid": 0,
+    "n": "示例视频.S01E01.mkv",
+    "ns": "",
+    "s": 1245588322,
+    "fc": 1,
+    "t": "1789189113",
+    "d": 1,
+    "c": 0,
+    "e": "",
+    "ico": "mkv",
+    "sha": "0000000000000000000000000000000000000000",
+    "is_skip_login": 0,
+    "ec": 0,
+    "play_long": 3104,
+    "audio_play_long": 0,
+    "fl": [],
+    "u": "",
+    "iv": 1,
+    "vdi": 5
+   }
+  ],
+  "share_state": 7,
+  "user_appeal": {
+   "can_appeal": 0,
+   "can_share_appeal": 0,
+   "popup_appeal_page": 0,
+   "can_global_appeal": 0
+  }
+ }
+}

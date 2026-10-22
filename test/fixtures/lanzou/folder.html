@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<title>脚本管理扩展</title>
+</head>
+<body>
+<div class="top">
+<div class="d1">
+<div class="d11 bgimg">
+<a href="/" class="d7"> </a></div>
+<div class="d12">
+<a href="/account.php?action=login">登录</a></div>
+</div>
+</div>
+<div class="pc bgimg"></div>
+
+
+<div class="load2" id="load2"><div class="loader"></div><div class="loader2">努力加载中...</div></div>
+<div class="d" id="info">
+<div class="b"><div id="sp_name"></div>
+<div class="rets">03-11<a href="/q/jb/?f=1486474&l=b&report=2" target="_blank"><span class="retspan">文件投诉</span></a></div>
+</div>
+<div class="tet"><span class="teta">话</span><span class="teta tetb">说</span><span id="filename">Chrome 重新开启 [拖入安装 .crx 扩展] 方法：<span style="color:#81bf7e">https://zhuanlan.zhihu.com/p/276027099</span></span></div><div class="d2">
+<div class="nameh">文件名</div>
+<div class="sizeh">大小</div>
+<div class="timeh">时间</div>
+</div>
+<div id="infos"></div>
+<!--filemore-->
+<div id="infomores"><span id="filemore" onclick="more();">显示更多文件</span></div>
+
+
+<!--save-->
+<div id="save"><a href="#" target="_blank"><span>一键转存到我的网盘</span></a></div>
+
+</div>
+
+<script type="text/javascript">
+	var ine7tv ='脚本管理扩展';
+	document.title = ine7tv;
+　　document.getElementById('sp_name').innerHTML=ine7tv;	var pwd;
+	var pgs;
+	var ibhjq9 = '1700000000';
+	var _hfvs2 = '0123456789abcdef0123456789abcdef';
+	pgs =1;
+		document.getElementById("load2").style.display="block";
+	file();
+	function file(){
+		$.ajax({
+			type : 'post',
+			url : '/filemoreajax.php?file=1486474',
+			data : { 
+			'lx':2,
+			'fid':1486474,
+			'uid':'493109',
+			'puid':'FIXTURE_PUID',
+			'pg':pgs,
+			'rep':'0',
+			't':ibhjq9,
+			'k':_hfvs2,
+			'up':1,
+						},
+			dataType : 'json',
+			success:function(msg){
+				//隐藏
+				document.getElementById("load2").style.display="none";
+				if(msg.zt == '1'){
+										var data = msg.text;
+					$.each(data, function(i, n){
+						var str;
+						var alink = '/' + n.id;
+						if(n.t ==1){
+							alink = n.id;
+							n.name_all = n.name_all + '<span class="s_ad">推广</span>';
+						}
+												str ='<div id=ready><div id=name>&nbsp;<img src=https://images.bakstotre.com/assets/images/filetype/'+ n.icon +'.gif align=absmiddle border=0>&nbsp;<a href=' + alink + ' target=_blank>' + n.name_all + '</a></div><div id=size>'+n.size+'</div><div id=time>'+n.time+'</div></div>';
+												if(n.id != '-1'){
+							$(str).appendTo("#infos");
+						}
+					});
+					pgs++;
+					//少于50条，隐"more"
+					if(data.length<50){
+						document.getElementById("filemore").style.display="none";
+					}
+				}else if(msg.zt == '2'){
+					$("#infos").html("<div style='clear: both;text-align: center;padding: 30px;'>没有文件</div>");
+					document.getElementById("filemore").style.display="none";
+									}else if(msg.zt == '3'){
+									}else if(msg.zt == '6'){
+					//$("#infos").text(msg.info);
+					$("#infos").html("<div style='clear: both;text-align: center;padding: 30px;'>"+msg.info+"</div>");
+					document.getElementById("filemore").style.display="none";
+									}else{
+					$("#infos").text(msg.info);
+				}
+			},
+			error:function(){
+				//隐藏
+				document.getElementById("load2").style.display="none";
+				$("#infos").text("获取失败，请重试");
+			}
+	
+	});
+}
+function more(){
+				$("#filemore").text("文件获取中...");
+		$.ajax({
+			type : 'post',
+			url : '/filemoreajax.php?file=1486474',
+			data : { 
+			'lx':2,
+			'fid':1486474,
+			'uid':'493109',
+			'puid':'FIXTURE_PUID',
+			'pg':pgs,
+			'rep':'0',
+			't':ibhjq9,
+			'k':_hfvs2,
+			'up':1,
+			 
+			},
+			dataType : 'json',
+			success:function(msg){
+				if(msg.zt == '1'){
+					var data = msg.text;
+					$.each(data, function(i, n){
+						var str;
+						var alink = '/' + n.id;
+						if(n.t ==1){
+							alink = n.id;
+							n.name_all = n.name_all + '<span class="s_ad">推广</span>';
+						}
+												str ='<div id=ready><div id=name>&nbsp;<img src=https://images.bakstotre.com/assets/images/filetype/'+ n.icon +'.gif align=absmiddle border=0>&nbsp;<a href=' + alink + ' target=_blank>' + n.name_all + '</a></div><div id=size>'+n.size+'</div><div id=time>'+n.time+'</div></div>';
+												if(n.id != '-1'){
+							$(str).appendTo("#infos");
+						}
+					});
+					if(data.length<50){
+						document.getElementById("filemore").style.display="none";
+					}else{
+						$("#filemore").text("显示更多文件");
+					}
+					pgs++;
+
+				}else{
+					document.getElementById("filemore").style.display="none";
+				}
+			},
+			error:function(){
+				$("filemore").text("获取失败，请重试");
+			}
+	
+		});
+	}
+<!--save-->
+document.getElementById("save").addEventListener("click", function(){
+	$.ajax({
+			type : 'post',
+			url : '/savep.php',
+			data : { 'action':'save','puid':'FIXTURE_PUID','sid':'1' },
+			dataType : 'json',
+			success:function(msg){
+				var date = msg;
+				if(date.zt == '1'){
+				}else{
+				};
+			},
+			error:function(){
+				
+			}
+	
+		});
+});
+</script>
+<div class="foot_info">&copy; 2026 Lanzou</div>
+</body>
+</html>

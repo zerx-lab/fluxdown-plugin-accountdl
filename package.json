@@ -1,0 +1,20 @@
+{
+  "name": "accountdl",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "fluxdown-plugin build",
+    "validate": "fluxdown-plugin validate",
+    "pack": "fluxdown-plugin pack",
+    "dev": "fluxdown-plugin dev",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.page.json",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "fluxdown-plugin-sdk": "file:/Users/zero/Desktop/code/zerx-lab/FluxDown/packages/plugin-sdk"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}
